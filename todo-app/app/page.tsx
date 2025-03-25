@@ -1,7 +1,12 @@
+import Todo from "./Todo";
 
 
 export default function Home() {
   return (
-  <div>Hi there </div>
+  <div>Hi there 
+
+
+    <Todo />
+  </div>
   );
 }
