@@ -1,7 +1,8 @@
-
+'use client'
 import React, { useState } from 'react';
 import { quiz } from '../Data/question';
-import {scorecard} from './scorecard';
+import ScoreCard from './scorecard';
+
 
 interface QuizResult {
   score: number;
@@ -91,7 +92,7 @@ const Quiz: React.FC<QuizProps> = ({ name }) => {
             </b>
             <button
               onClick={handleNextQuestion}
-              className={`px-4 py-2 text-white rounded-lg transition-colors duration-300 ${
+              className={`px-4 py-2 text-white cursor-pointer rounded-lg transition-colors duration-300 ${
                 !answerChecked
                   ? 'bg-gray-400 cursor-not-allowed'
                   : 'bg-blue-500 hover:bg-blue-600'
