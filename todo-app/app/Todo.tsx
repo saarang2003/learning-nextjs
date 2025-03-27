@@ -1,12 +1,22 @@
 'use client';
+
 import { useState } from "react";
 
-const Todo = () => {
-  const [userInput, setUserInput] = useState('');
-  const [todos, setTodos] = useState([]);
-  const [ediIndex, setEditIndex] = useState(null);
 
-  const handleChange = (value) => {
+interface TodoItem{
+  id  : number,
+  value : string
+}
+
+
+
+
+const Todo = () => {
+  const [userInput, setUserInput] = useState<string>('');
+  const [todos, setTodos] = useState<TodoItem[]>([]);
+  const [ediIndex, setEditIndex] = useState<number | null>(null);
+
+  const handleChange = (value : string) => {
     setUserInput(value);
   }
 
@@ -34,12 +44,12 @@ const Todo = () => {
     setUserInput('');
   }
 
-  const deleteItem = (id) => {
+  const deleteItem = (id : number) => {
     const updatedTodo = todos.filter((todo) => todo.id !== id);
     setTodos(updatedTodo);
   }
 
-  const startEdit = (index) => {
+  const startEdit = (index : number) => {
     setUserInput(todos[index].value);
     setEditIndex(index);
   }
