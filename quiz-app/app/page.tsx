@@ -22,10 +22,10 @@ export default function Home() {
              
           ) : (
             <> 
-            <div className="mb-3">
-              <label htmlFor="name">Enter your name below👇</label>
+            <div className=" flex flex-col mb-3">
+              <label htmlFor="name" >Enter your name below👇</label>
 
-              <input type="text" className="border mt-3" id="name" value={name} onChange={(e) => setName(e.target.value)} />
+              <input type="text" className="border max-w-sm m-auto mt-3" id="name" value={name} onChange={(e) => setName(e.target.value)} />
             </div>
 
             <button 
