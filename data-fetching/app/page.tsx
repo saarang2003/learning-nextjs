@@ -1,38 +1,30 @@
+// app/page.tsx
+// 'use client'
+import { FC } from 'react';
+import PostList from './components/PostList';
 
-import React from "react";
-import PostList from "./components/PostList";
-
-interface Post{
-  id : number;
-  title : string;
-  body : string;
+interface Post {
+  id: number;
+  title: string;
+  body: string;
 }
 
 interface PageProps {
   posts: Post[];
 }
 
+// This is a Server Component (no 'use client' directive)
+const Page: FC<PageProps> = async () => {
+  // Fetching data directly in the component
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+  const posts = await res.json();
 
-const Page : React.FC<PageProps> = ({posts}) =>{
-  return(
+  return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-semibold text-center mb-6">Fetched Posts</h1>
-    <PostList posts={posts} />
+      <h1 className="text-3xl font-semibold text-center mb-6">Fetched Posts (SSR)</h1>
+      <PostList posts={posts} />
     </div>
-  )
+  );
 };
-
-// Fetch data on the server side using getServerSideProps
-export async function getServerSideProps(){
-    const res = await fetch('https://jsonplaceholder.typicode.com/posts');
-    const posts = await res.json();
-
-    return {
-      props : {
-        posts,
-      }
-    }
-}
-
 
 export default Page;
