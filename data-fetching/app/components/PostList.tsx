@@ -27,3 +27,6 @@ interface Post {
         </div>
     )
   }
+
+  export default PostList;
+  
