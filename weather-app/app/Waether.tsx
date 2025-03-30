@@ -63,6 +63,7 @@ const Weather = () => {
     try {
       const response = await axios.get(url);
       setForecastData(response.data);
+      console.log("response" , response);
     } catch (error) {
       console.error('Error fetching forecast data:', error);
     }
