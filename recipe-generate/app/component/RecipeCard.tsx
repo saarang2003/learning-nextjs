@@ -70,3 +70,5 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipes, openModal, closeModal,
 };
 
 export default RecipeCard;
+
+

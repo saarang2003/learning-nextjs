@@ -1,5 +1,6 @@
 
 'use client'
+
 import { useState } from "react";
 import axios from "axios";
 import RecipeCard from "./RecipeCard";
@@ -26,15 +27,14 @@ export const RecipeGenerator: React.FC = () => {
   // Generate recipe function
   const generateRecipe = async () => {
     try {
-      const response = await axios.get(
-        `https://api.edamam.com/search?q=${search}&app_id=${APP_ID}&app_key=${APP_KEY}`
-      );
+      const response = await axios.get(`http://edamam.com/results/recipes/?search=${search}`);
+      
       if (response.data.hits.length > 0) {
         const fetchedRecipes = response.data.hits.map((hit: any) => ({
           label: hit.recipe.label,
           image: hit.recipe.image,
           calories: hit.recipe.calories,
-          ingredientLines: hit.recipe.ingredientLines, // Ensure this is a string[] type
+          ingredientLines: hit.recipe.ingredientLines,
         }));
         setRecipes(fetchedRecipes); // Store the fetched recipes
       }
