@@ -4,7 +4,7 @@ import React, { useCallback, useEffect } from "react";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { Particles } from "../ui/particles";
 
-import { cn } from "@/functions";
+import { cn } from "../../functions";
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode;
