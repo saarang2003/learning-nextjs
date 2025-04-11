@@ -1,4 +1,4 @@
-import { cn } from "@/functions";
+import { cn } from "../../functions";
 
 export default function RetroGrid({
     className,
